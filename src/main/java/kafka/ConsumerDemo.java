@@ -1,3 +1,5 @@
+package kafka;
+
 import kafka.consumer.Consumer;
 import kafka.consumer.ConsumerConfig;
 import kafka.consumer.KafkaStream;
@@ -61,6 +63,7 @@ public class ConsumerDemo {
         props.put("zookeeper.session.timeout.ms", "400");
         props.put("zookeeper.sync.time.ms", "200");
         props.put("auto.commit.interval.ms", "1000");
+        props.put("auto.offset.reset", "smallest");
 
         return new ConsumerConfig(props);
     }

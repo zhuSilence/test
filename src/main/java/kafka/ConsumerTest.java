@@ -1,3 +1,5 @@
+package kafka;
+
 import kafka.consumer.ConsumerIterator;
 import kafka.consumer.KafkaStream;
  

@@ -1,3 +1,5 @@
+package kafka;
+
 import kafka.javaapi.producer.Producer;
 import kafka.producer.KeyedMessage;
 import kafka.producer.ProducerConfig;
@@ -15,8 +17,8 @@ public class ProducerDemo {
         props.put("serializer.class", "kafka.serializer.StringEncoder");
         props.put("key.serializer.class", "kafka.serializer.StringEncoder");
         props.put("request.required.acks", "1");
+        //props.put("partitioner.class", "kafka.PartitionerImpl");
         ProducerConfig config = new ProducerConfig(props);
-
         // 创建producer
         Producer<String, String> producer = new Producer<String, String>(config);
         // 产生并发送消息
