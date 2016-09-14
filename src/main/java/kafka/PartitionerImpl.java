@@ -8,8 +8,15 @@ import kafka.producer.Partitioner;
  */
 public class PartitionerImpl implements Partitioner {
     @Override
-    public int partition(Object o, int i) {
-
-        return 0;
+    public int partition(Object key, int numPartitions) {
+        int partition;
+        String k = (String)key;
+        partition = Math.abs(k.hashCode()) % numPartitions;
+        return partition;
     }
+
+    /*public static void main(String[] args) {
+        PartitionerImpl impl = new PartitionerImpl();
+        System.out.println(impl.partition("111",4));
+    }*/
 }
