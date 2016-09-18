@@ -14,7 +14,7 @@ public class Test implements Runnable {
     public void run() {
 
         FileUtils fileUtils = new FileUtils();
-        for (int i = 0; i < 60000; i++) {
+        for (int i = 0; i < 100000; i++) {
             String string = "<orderEntry type=\"library\" name=\"Maven: joda-time:joda-time:2.9.3\" level=\"project\" /><orderEntry type=\"library\" name=\"Maven: joda-time:joda-time:2.9.3\" level=\"project\" /><orderEntry type=\"library\" name=\"Maven: joda-time:joda-time:2.9.3\" level=\"project\" />\n";
             try {
                 InputStream inputStream = new ByteArrayInputStream(string.getBytes());

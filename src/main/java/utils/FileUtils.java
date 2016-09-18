@@ -13,7 +13,7 @@ public class FileUtils {
     /**
      * 标准输入流
      */
-    private InputStream inputStream;
+    private BufferedInputStream inputStream;
     /**
      * 标准输出流
      */
@@ -22,7 +22,7 @@ public class FileUtils {
     public FileUtils() {
     }
 
-    public FileUtils(InputStream inputStream) {
+    public FileUtils(BufferedInputStream inputStream) {
         this.inputStream = inputStream;
     }
 
@@ -103,4 +103,6 @@ public class FileUtils {
         fileUtils.writeFileEveryDay("D:\\软件\\java\\logs\\");
 
     }*/
+
+
 }
