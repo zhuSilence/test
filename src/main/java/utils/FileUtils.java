@@ -13,7 +13,7 @@ public class FileUtils {
     /**
      * 标准输入流
      */
-    private BufferedInputStream inputStream;
+    private InputStream inputStream;
     /**
      * 标准输出流
      */
@@ -22,7 +22,7 @@ public class FileUtils {
     public FileUtils() {
     }
 
-    public FileUtils(BufferedInputStream inputStream) {
+    public FileUtils(InputStream inputStream) {
         this.inputStream = inputStream;
     }
 
@@ -97,12 +97,7 @@ public class FileUtils {
         if (outputStream != null) outputStream.close();
     }
 
-/*    public static void main(String[] args) throws IOException {
-        InputStream inputStream = new FileInputStream("D:\\软件\\java\\logs\\2016-09-17.log");
-        FileUtils fileUtils = new FileUtils(inputStream);
-        fileUtils.writeFileEveryDay("D:\\软件\\java\\logs\\");
 
-    }*/
 
 
 }
