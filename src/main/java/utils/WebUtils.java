@@ -26,7 +26,7 @@ public final class WebUtils {
             String e = encodingFileName(fileName, request, response);
             response.setHeader("Content-Disposition", "attachment; " + e);
         } catch (UnsupportedEncodingException var4) {
-            throw new RuntimeException("×ª»»ÖĞÎÄÎÄ¼şÃûÊ§°Ü", var4);
+            throw new RuntimeException("è®¾ç½®å“åº”å¤´å¼‚å¸¸", var4);
         }
     }
 
