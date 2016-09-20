@@ -17,8 +17,6 @@ import org.springframework.stereotype.Service;
 
 /**
  * 类KafkaServiceImpl.java的实现描述：发消息实现类
- *
- * @author Sunney 2016年4月30日 上午11:31:13
  */
 @Service("kafkaService")
 public class KafkaServiceImpl implements KafkaService {

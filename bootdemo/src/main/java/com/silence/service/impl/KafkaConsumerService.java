@@ -14,8 +14,6 @@ import java.util.*;
 
 /**
  * 类KafkaConsumerService.java的实现描述：消费接收类
- * 
- * @author Sunney 2016年4月30日 上午11:46:14
  */
 public class KafkaConsumerService {
 
@@ -30,8 +28,8 @@ public class KafkaConsumerService {
             for (Integer i : keys)
                 logger.info("======Partition:" + i);
             Collection<String> values = messages.values();
-            for (Iterator<String> iterator = values.iterator(); iterator.hasNext();) {
-                String message = "["+iterator.next()+"]";
+            for (Iterator<String> iterator = values.iterator(); iterator.hasNext(); ) {
+                String message = "[" + iterator.next() + "]";
                 logger.info("=====message:" + message);
                 List<UserDto> userList = JSON.parseArray(message, UserDto.class);
                 logger.info("=====userList.size:" + userList.size());
