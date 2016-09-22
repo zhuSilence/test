@@ -1,4 +1,4 @@
-package kafka;
+package kafka.Partitioner;
 
 import kafka.producer.Partitioner;
 
@@ -6,7 +6,7 @@ import kafka.producer.Partitioner;
  * Created by zhuxiang on 2016/9/13.
  * Desc :
  */
-public class PartitionerImpl implements Partitioner {
+public class TestPartitionerImpl implements Partitioner {
     @Override
     public int partition(Object key, int numPartitions) {
         int partition;
@@ -16,7 +16,7 @@ public class PartitionerImpl implements Partitioner {
     }
 
     /*public static void main(String[] args) {
-        PartitionerImpl impl = new PartitionerImpl();
+        TestPartitionerImpl impl = new TestPartitionerImpl();
         System.out.println(impl.partition("111",4));
     }*/
 }
