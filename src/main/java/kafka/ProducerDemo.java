@@ -13,8 +13,9 @@ import java.util.TimerTask;
 
 
 public class ProducerDemo {
+
     public void sendObject() {
-        int events = 20;
+        int events = 2000;
         // 设置配置属性
         Properties props = new Properties();
         props.put("metadata.broker.list", "172.20.135.95:9092,172.20.135.95:9093");
@@ -35,10 +36,10 @@ public class ProducerDemo {
             model.setCity(310100);
             model.setSchedule_id("S20160831001649");
             model.setOrder_id("O20160831000420");
-            model.setAdspace_id("CCADTV10001");
-            model.setMedia_type("image");
-            model.setAgent_id(51);
-            model.setCustomer_id(38);
+            model.setAdspace_id("CCADTV10002");
+            model.setMedia_type("zhuxiang");
+            model.setAgent_id("51");
+            model.setCustomer_id("38");
             model.setWeekdaynum(3);
             model.setHoursnum(9);
             model.setCreate_time(new Date());
@@ -50,10 +51,10 @@ public class ProducerDemo {
             String string = JSON.toJSONString(model);
 
             KeyedMessage<String, String> data = new KeyedMessage<String, String>(
-                    "clientsRequests", key, string);
+                    "clientsRequests2", key, string);
             producer.send(data);
         }
-        System.out.println("耗时:" + (System.currentTimeMillis() - start));
+        System.out.println("产生并发送消息耗时:" + (System.currentTimeMillis() - start));
         producer.close();
     }
 
@@ -64,9 +65,10 @@ public class ProducerDemo {
             @Override
             public void run() {
                 producerDemo.sendObject();
-                //System.out.println(1);
+
             }
-        }, new Date(), 1000);
+
+        }, new Date(), 2000);
         //producerDemo.sendObject();
 
     }

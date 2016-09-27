@@ -1,0 +1,32 @@
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+    <appender name="MY_LOG" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="D://logs/BANIT_LOG.log" />
+        <param name="DatePattern" value="D:/logs/log-%d{yyyy-MM-dd}.%i.log" />
+        <param name="Threshold" value="MY_INFO"/>
+        &lt;!&ndash;<fileNamePattern>D:/logs/log-%d{yyyy-MM-dd}.%i.log</fileNamePattern>&ndash;&gt;
+        <param name="Append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%m%n" />
+        </layout>
+        <filter class="com.coocaa.salad.stat.logFile.MyLogFilter">
+            <param name="LevelMin" value="60000" />
+            <param name="LevelMax" value="60000" />
+        </filter>
+    </appender>
+
+    <appender name="LOG.OTHER" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${catalina.home}/logs/OTHER_LOG.log" />
+        <param name="Append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyy-MM-dd HH:mm:ss} [%-5p] %c {%F:%L} - %m%n" />
+        </layout>
+    </appender>
+
+    <root>
+        <appender-ref ref="MY_LOG" />
+    </root>
+</log4j:configuration>-->

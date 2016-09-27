@@ -15,9 +15,9 @@ public class ClientRequestsModel {
     private String order_id;
     private String adspace_id;
     private String media_type;
-    private Integer agent_id;
+    private String agent_id;
     private String agent_name;
-    private Integer customer_id;
+    private String customer_id;
     private String company;
     private Integer weekdaynum;
     private Integer hoursnum;
@@ -103,11 +103,11 @@ public class ClientRequestsModel {
         this.hoursnum = hoursnum;
     }
 
-    public Integer getAgent_id() {
+    public String getAgent_id() {
         return agent_id;
     }
 
-    public void setAgent_id(Integer agent_id) {
+    public void setAgent_id(String agent_id) {
         this.agent_id = agent_id;
     }
 
@@ -135,11 +135,11 @@ public class ClientRequestsModel {
         this.ip = ip;
     }
 
-    public Integer getCustomer_id() {
+    public String getCustomer_id() {
         return customer_id;
     }
 
-    public void setCustomer_id(Integer customer_id) {
+    public void setCustomer_id(String customer_id) {
         this.customer_id = customer_id;
     }
 }
