@@ -1,7 +1,5 @@
 package entity;
 
-import java.util.Date;
-
 /**
  * Created by 00175 on 2015/9/16.
  */
@@ -9,19 +7,64 @@ public class ClientRequestsModel {
 
     private String mac;
     private String ip;
-    private Integer province;
-    private Integer city;
+    private String province;
+    private String province_name;
+    private String city;
+    private String city_name;
     private String schedule_id;
     private String order_id;
     private String adspace_id;
     private String media_type;
-    private String agent_id;
+    private Integer agent_id;
     private String agent_name;
-    private String customer_id;
+    private Integer customer_id;
     private String company;
     private Integer weekdaynum;
-    private Integer hoursnum;
-    private Date create_time;
+    private String hoursnum;
+    private String create_time;
+    private String brand;
+    private String model;
+    private Integer total_traffic;
+
+    public Integer getTotal_traffic() {
+        return total_traffic;
+    }
+
+    public void setTotal_traffic(Integer total_traffic) {
+        this.total_traffic = total_traffic;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getProvince_name() {
+        return province_name;
+    }
+
+    public void setProvince_name(String province_name) {
+        this.province_name = province_name;
+    }
+
+    public String getCity_name() {
+        return city_name;
+    }
+
+    public void setCity_name(String city_name) {
+        this.city_name = city_name;
+    }
 
     public String getMac() {
         return mac;
@@ -31,19 +74,19 @@ public class ClientRequestsModel {
         this.mac = mac;
     }
 
-    public Integer getProvince() {
+    public String getProvince() {
         return province;
     }
 
-    public void setProvince(Integer province) {
+    public void setProvince(String province) {
         this.province = province;
     }
 
-    public Integer getCity() {
+    public String getCity() {
         return city;
     }
 
-    public void setCity(Integer city) {
+    public void setCity(String city) {
         this.city = city;
     }
 
@@ -79,11 +122,11 @@ public class ClientRequestsModel {
         this.media_type = media_type;
     }
 
-    public Date getCreate_time() {
+    public String getCreate_time() {
         return create_time;
     }
 
-    public void setCreate_time(Date create_time) {
+    public void setCreate_time(String create_time) {
         this.create_time = create_time;
     }
 
@@ -95,19 +138,19 @@ public class ClientRequestsModel {
         this.weekdaynum = weekdaynum;
     }
 
-    public Integer getHoursnum() {
+    public String getHoursnum() {
         return hoursnum;
     }
 
-    public void setHoursnum(Integer hoursnum) {
+    public void setHoursnum(String hoursnum) {
         this.hoursnum = hoursnum;
     }
 
-    public String getAgent_id() {
+    public Integer getAgent_id() {
         return agent_id;
     }
 
-    public void setAgent_id(String agent_id) {
+    public void setAgent_id(Integer agent_id) {
         this.agent_id = agent_id;
     }
 
@@ -135,11 +178,11 @@ public class ClientRequestsModel {
         this.ip = ip;
     }
 
-    public String getCustomer_id() {
+    public Integer getCustomer_id() {
         return customer_id;
     }
 
-    public void setCustomer_id(String customer_id) {
+    public void setCustomer_id(Integer customer_id) {
         this.customer_id = customer_id;
     }
 }

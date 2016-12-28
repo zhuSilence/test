@@ -1,13 +1,13 @@
-<!--
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 
 <log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
     <appender name="MY_LOG" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="D://logs/BANIT_LOG.log" />
-        <param name="DatePattern" value="D:/logs/log-%d{yyyy-MM-dd}.%i.log" />
-        <param name="Threshold" value="MY_INFO"/>
-        &lt;!&ndash;<fileNamePattern>D:/logs/log-%d{yyyy-MM-dd}.%i.log</fileNamePattern>&ndash;&gt;
+        <param name="File" value="D://logs/log4j" />
+        <!--定时每天生产一个备份文件-->
+        <param name="DatePattern" value="'_'yyyy-MM-dd-HH-mm'.log'" />
+        <param name="Threshold" value="INFO"/>
+        <!--<fileNamePattern>D:/logs/log-%d{yyyy-MM-dd}.%i.log</fileNamePattern>-->
         <param name="Append" value="true" />
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%m%n" />
@@ -27,6 +27,7 @@
     </appender>
 
     <root>
+        <priority value ="INFO"/>
         <appender-ref ref="MY_LOG" />
     </root>
-</log4j:configuration>-->
+</log4j:configuration>

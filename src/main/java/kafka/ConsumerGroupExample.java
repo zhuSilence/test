@@ -64,7 +64,7 @@ public class ConsumerGroupExample {
     }
 
     public static void main(String[] arg) {
-        String[] args = {"172.20.135.95:2181,172.20.135.95:2182", "group-5", "testTopic", "12"};
+        String[] args = {"172.20.132.140:2181,172.20.132.141:2181,172.20.132.142:2181", "group_adPv_", "adPv_CCADTV10001", "1"};
         String zooKeeper = args[0];
         String groupId = args[1];
         String topic = args[2];

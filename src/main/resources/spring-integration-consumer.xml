@@ -1,0 +1,62 @@
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:int-kafka="http://www.springframework.org/schema/integration/kafka"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/integration/kafka http://www.springframework.org/schema/integration/kafka/spring-integration-kafka-1.0.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    &lt;!&ndash; topic test conf &ndash;&gt;
+    <int:channel id="inputFromKafka">
+        <int:dispatcher task-executor="kafkaMessageExecutor"/>
+    </int:channel>
+    &lt;!&ndash; zookeeper配置 可以配置多个 &ndash;&gt;
+    <int-kafka:zookeeper-connect id="zookeeperConnect"
+                                 zk-connect="172.20.132.140:2181,172.20.132.141:2181,172.20.132.142:2181" zk-connection-timeout="10000"
+                                 zk-session-timeout="400000" zk-sync-time="2000"/>
+
+    &lt;!&ndash; channel配置 auto-startup="true"  否则接收不发数据 &ndash;&gt;
+    <int-kafka:inbound-channel-adapter
+            id="kafkaInboundChannelAdapter" kafka-consumer-context-ref="consumerContext"
+            auto-startup="true" channel="inputFromKafka">
+        <int:poller fixed-delay="1" time-unit="MILLISECONDS"/>
+    </int-kafka:inbound-channel-adapter>
+    <task:executor id="kafkaMessageExecutor" pool-size="8" keep-alive="120" queue-capacity="500"/>
+    <bean id="kafkaDecoder"
+          class="org.springframework.integration.kafka.serializer.common.StringDecoder"/>
+
+    <bean id="consumerProperties"
+          class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="properties">
+            <props>
+                <prop key="auto.offset.reset">smallest</prop>
+                <prop key="socket.receive.buffer.bytes">10485760</prop> &lt;!&ndash; 10M &ndash;&gt;
+                <prop key="fetch.message.max.bytes">5242880</prop>
+                <prop key="auto.commit.interval.ms">1000</prop>
+                <prop key="auto.commit.enables">true</prop>
+            </props>
+        </property>
+    </bean>
+    &lt;!&ndash; 消息接收的BEEN &ndash;&gt;
+    <bean id="kafkaConsumerService" class="com.coocaa.salad.stat.service.KafkaConsumerService"/>
+    &lt;!&ndash; 指定接收的方法 &ndash;&gt;
+    <int:outbound-channel-adapter channel="inputFromKafka"
+                                  ref="kafkaConsumerService" method="processMessage"/>
+
+    <int-kafka:consumer-context id="consumerContext"
+                                consumer-timeout="1000" zookeeper-connect="zookeeperConnect"
+                                consumer-properties="consumerProperties">
+        <int-kafka:consumer-configurations>
+            <int-kafka:consumer-configuration
+                    group-id="group-1" value-decoder="kafkaDecoder" key-decoder="kafkaDecoder"
+                    max-messages="5000">
+                &lt;!&ndash; 两个TOPIC配置 &ndash;&gt;
+                <int-kafka:topic id="clientsRequests3" streams="4"/>
+                &lt;!&ndash;<int-kafka:topic id="sunneytopic" streams="4" />&ndash;&gt;
+            </int-kafka:consumer-configuration>
+        </int-kafka:consumer-configurations>
+    </int-kafka:consumer-context>
+</beans>-->
